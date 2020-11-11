@@ -46,7 +46,7 @@ static getOneByUsername = async (req: Request, res: Response) => {
     // });
     res.send(user);
   } catch (error) {
-    res.status(404).send("Tag not found");
+    res.status(404).send("USER not found");
   }
 };
 

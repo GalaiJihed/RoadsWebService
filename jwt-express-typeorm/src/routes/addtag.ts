@@ -9,5 +9,7 @@ router.delete("/deleteTag/:id([0-9]+)", AddTagController.deleteTag);
 router.post("/findtagsuser", AddTagController.searchTagByaddress);
 router.post("/alltag",AddTagController.GetAllTag)
 router.post("/gettagbyid",AddTagController.getOneById)
+router.post("/getbylatlng",AddTagController.getOneByLatLng)
+
 
 export default router;

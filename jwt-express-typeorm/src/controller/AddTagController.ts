@@ -92,6 +92,25 @@ static getOneById = async (req:Request,res:Response) => {
   }
 };
 
+static getOneByLatLng = async (req: Request, res: Response) => {
+  //Get the ID from the url
+  let { longitude,latitude } = req.body;
+  
+    console.log("longitude : "+longitude+"latitude : "+latitude);
+
+  //Get the user from database
+  const tagRepository = getRepository(Tag);
+  try {
+    const tag = await  tagRepository.findOneOrFail({latitude,longitude} ); 
+    //const user = await userRepository.findOneOrFail(username, {
+     //  select: ["username", "id", "role"] //We dont want to send the password on response
+    // });
+    res.send(tag);
+  } catch (error) {
+    res.status(404).send("Tag not found");
+  }
+};
+
 
 static newtag = async(req:Request , res:Response)=>{
     let {route,description,picture,longitude,latitude,user,ville,titre} =req.body;
