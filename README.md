@@ -8,7 +8,7 @@
 <li>Clone the project </li>
   <code>git clone https://github.com/GalaiJihed/RoadsWebService.git</code>
 <li>Run this in root directory to install backend nodemodules</li>
-<p> Go to the folder /jwt-express-typeorm and launch 
+  <p> Go to the folder /jwt-express-typeorm and launch </p> </<br>
 <code>npm install</code>
   <li>Create New database with the same name in the file ormconfig.json </li>
 <li>Run the server </li>
