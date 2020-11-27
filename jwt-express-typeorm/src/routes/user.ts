@@ -20,6 +20,7 @@ router.get(
 router.post("/", UserController.newUser);
 
 
+router.patch("/edit/:id([0-9]+)", UserController.editUserr);
 //find user
 router.post("/me", UserController.getOneByUsername);
 

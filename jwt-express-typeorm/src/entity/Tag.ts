@@ -26,6 +26,7 @@ import { User } from "../entity/User";
     @Column({ type: "float", precision: 10, scale: 6 })
     longitude: number;
     
+    
     @Column()
     @Length(4, 100)
     picture: string;

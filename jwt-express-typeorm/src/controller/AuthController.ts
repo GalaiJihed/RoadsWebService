@@ -43,10 +43,9 @@ class AuthController {
 
   static changePassword = async (req: Request, res: Response) => {
     //Get ID from JWT
-    const id = res.locals.jwtPayload.userId;
-
+    
     //Get parameters from the body
-    const { oldPassword, newPassword } = req.body;
+    const {id, oldPassword, newPassword } = req.body;
     if (!(oldPassword && newPassword)) {
       res.status(400).send();
     }

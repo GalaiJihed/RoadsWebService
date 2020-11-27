@@ -32,6 +32,7 @@ static listAll = async (req: Request, res: Response) => {
   }
 };*/
 
+
 static getOneByUsername = async (req: Request, res: Response) => {
   //Get the ID from the url
   let { username } = req.body;
@@ -50,7 +51,41 @@ static getOneByUsername = async (req: Request, res: Response) => {
   }
 };
 
-
+static editUserr = async (req: Request, res: Response) => {
+  //Get the ID from the url
+  const id = req.params.id;
+  
+  //Get values from the body
+  const { username, email,address,picture,phoneNumber } = req.body;
+  
+  //Try to find user on database
+  const tagRepository = getRepository(User);
+  let user;
+  try {
+    user = await tagRepository.findOneOrFail(id);
+  } catch (error) {
+    //If not found, send a 404 response
+    res.status(404);
+    return;
+  }
+  
+  //Validate the new values on model
+  user.username = username;
+  user.email = email;
+  user.address = address;
+  user.picture = picture;
+  user.phoneNumber=phoneNumber;
+  //Try to safe, if fails, that means username already in use
+  try {
+    await tagRepository.save(user);
+  } catch (e) {
+    res.status(409).send("Not Found");
+    return;
+  }
+  //After all send a 204 (no content, but accepted) response
+  res.status(204).send();
+  };
+  
 static updatePicture = async (picture,username ) => {
   //Get the ID from the url
   console.log("Username : "+username);
