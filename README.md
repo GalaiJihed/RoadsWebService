@@ -10,7 +10,7 @@
 <li>Run this in root directory to install backend nodemodules</li>
   <p> Go to the folder /jwt-express-typeorm and launch </p> </<br>
 <code>npm install</code>
-  <li>Create New database with the same name in the file ormconfig.json </li>
+  <li>Setup database settings inside `ormconfig.json` file  </li>
  <li>Create a new Folder in this root with the name uploads</li> 
 <li>Run the server </li>
   <code>npm start </code> 
